@@ -17,7 +17,8 @@ app.get('/', (req, res, next) => {
         .map(t => {
           return {
             amount: t.amount,
-            date: t.created
+            date: t.created,
+            category: t.category
           };
         });
     res.send(JSON.stringify(cleanList));
