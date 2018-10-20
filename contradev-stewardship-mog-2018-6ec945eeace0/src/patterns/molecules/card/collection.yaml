@@ -1,9 +1,0 @@
-# Override the default folder-based name ("Typographic")
-name: Cards
-
-
-notes: | 
-  Cards are out way of presenting information and teasers to the user.  They will typically be used on the dashboard to promote 
-  a particular appeal, or outline some information the user needs to act on (like link bank account).  They can also be used at the end
-  of a process to encourage the user to do something else.  For example at the end of the linking a bank account the user could be presented
-  with a card encouraging them to give.

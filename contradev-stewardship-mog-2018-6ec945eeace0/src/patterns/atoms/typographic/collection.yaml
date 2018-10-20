@@ -1,9 +1,0 @@
-# Override the default folder-based name ("Typographic")
-name: Typography
-
-# Make this appear before its sibling collections in listings
-order: 1
-
-notes: |
-  Examples of foundational typographic elements like headings, paragraphs and lists.
-  The primary font has been defined as 'URW Geometric ExtraLight' set in /src/scss/scss/generic/_variables.scss. Currently we are adding the preview version in JS which will need to be replaced with licenced versions during development.
