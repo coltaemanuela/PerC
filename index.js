@@ -72,30 +72,33 @@ app.get('/weekly-donation', (req,res,next) =>  {
   }).then(response => {
     const cleanList = response.data.transactions;
     const donation = cleanList.map(t => {
-      suggestedDonation += Math.abs(t.amount)*0.1;
+      suggestedDonation += Math.abs(t.amount) * 0.1;
     });
     console.log(suggestedDonation);
-    res.send(JSON.stringify(suggestedDonation/100));
+    res.status(200);
+    res.send(`${(suggestedDonation/100).toFixed(2)}`);
     next();
   });
 });
 
-app.get('/notification', function(req, res) {
-  webpush.setVapidDetails(
-    'mailto:alasdair.munday@gmail.com',
-    config.vapidKeys.public,
-    config.vapidKeys.private
-  );
-  webpush.sendNotification({
-    "endpoint":"https://updates.push.services.mozilla.com/wpush/v1/gAAAAABbyxKS6v6Rqhm-BO3RgmLK92qTvLOuXZN1f6dw5FKYnHnndXTpihbi3Z1n65xvSLwWWRSejIVIcyr_OX8JhBL7a9NUQh-XmQ_y-8mQ3RrMYTF1x4YdQlAXJg8tNMo9nfuq-7Dc",
-    "keys":{"auth":"i2L5fHKaeY6eAYFq2em36w","p256dh":"BC_4NZ81cetiv08GR5I_tJNCglSgXTiDNTMSYf0DL1EySBwmSN7zY3GPNJxRdXEmKyf0uIahHrHTrA_EMgi9lpM"}},
-    'Your Push Payload Text');
-  res.sendStatus(200);
-});
+// app.get('/notification', function(req, res) {
+//   webpush.setVapidDetails(
+//     'mailto:alasdair.munday@gmail.com',
+//     config.vapidKeys.public,
+//     config.vapidKeys.private
+//   );
+//   webpush.sendNotification({
+//     "endpoint":"https://updates.push.services.mozilla.com/wpush/v1/gAAAAABbyxKS6v6Rqhm-BO3RgmLK92qTvLOuXZN1f6dw5FKYnHnndXTpihbi3Z1n65xvSLwWWRSejIVIcyr_OX8JhBL7a9NUQh-XmQ_y-8mQ3RrMYTF1x4YdQlAXJg8tNMo9nfuq-7Dc",
+//     "keys":{"auth":"i2L5fHKaeY6eAYFq2em36w","p256dh":"BC_4NZ81cetiv08GR5I_tJNCglSgXTiDNTMSYf0DL1EySBwmSN7zY3GPNJxRdXEmKyf0uIahHrHTrA_EMgi9lpM"}},
+//     'Your Push Payload Text');
+//   res.sendStatus(200);
+// });
 
 app.get('/pledge', calculatePledge);
 
-// app.get('/notification', notification);
+app.get('/notification', (req,res) => {
+  notification()
+});
 
 app.get('/give/:amount', postToFeed);
 
