@@ -39,7 +39,7 @@ app.get('/api/transactions', (req, res, next) => {
  * Run a cron job every 7 days to identify the expenses for the last week
 */
 app.get('/api/cron', (req,res,next) =>  {
-  cron.schedule('* * * * * *', () => 
+  cron.schedule('* * * * * *', () => {
     var before = (new Date()).toISOString();
     var since = (new Date(Date.now() - (7 * 24 * 60 * 60 * 1000))).toISOString();
     axios.get('https://api.monzo.com/transactions', {
