@@ -1,8 +1,10 @@
 const express = require('express');
 const axios = require('axios');
+var cron = require('node-cron');
 const config = require('./config.json');
 const postToFeed = require('./actions/postToFeed');
-const calculatePledge = require('./actions/calculatePledge')
+const calculatePledge = require('./actions/calculatePledge');
+var notification = require ('./actions/notification');
 const app = express();
 const port = 3000;
 
@@ -34,27 +36,36 @@ app.get('/api/transactions', (req, res, next) => {
 
 /**
  * Identify the weekly expenses 
- * Current version is just for testing purposes. 
- * The query param needs to be replaced with the id sent by POST or, better, take the date now - 7 and run a cron job ??
+ * Run a cron job every 7 days to identify the expenses for the last week
 */
-app.get('/api/weekly-expenses/:date', (req, res, next) => {
-  axios.get('https://api.monzo.com/transactions', {
-        headers: {
-          Authorization: `Bearer ${config.apiKey}`
-        },
-        params: {
-          account_id: config.accountId,
-          since: ""+ req.params.date+"" 
-        }
-      }).then(response => {
-        const cleanList = response.data.transactions;
-        const donation = cleanList.map(t => {
-            return Math.abs(t.amount)*0.1;            
-        });
-        res.send(JSON.stringify(donation));         
-    });
+app.get('/api/cron', (req,res,next) =>  {
+  cron.schedule('* * * * * *', () => 
+    var before = (new Date()).toISOString();
+    var since = (new Date(Date.now() - (7 * 24 * 60 * 60 * 1000))).toISOString();
+    axios.get('https://api.monzo.com/transactions', {
+          headers: {
+            Authorization: `Bearer ${config.apiKey}`
+          },
+          params: {
+            account_id: config.accountId,
+            since: since,      
+            before: before          
+          }
+        }).then(response => {
+          const cleanList = response.data.transactions;
+          const donation = cleanList.map(t => {
+              return Math.abs(t.amount)*0.1;            
+          });
+          console.log('running a task every second');
+          res.send(JSON.stringify(donation));  
+          next()       
+      });
+  });  
 });
+
 app.get('/pledge', calculatePledge);
+
+app.get('/notification', notification);
 
 app.get('/give/:amount', postToFeed);
 
