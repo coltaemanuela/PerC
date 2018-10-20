@@ -66,7 +66,7 @@ app.get('/weekly-donation', (req,res,next) =>  {
       suggestedDonation += Math.abs(t.amount)*0.1;         
     });
     console.log(suggestedDonation);
-    res.send(JSON.stringify(suggestedDonation));
+    res.send(JSON.stringify(suggestedDonation/100));
     next();       
   });
 });
