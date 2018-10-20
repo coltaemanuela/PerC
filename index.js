@@ -38,29 +38,28 @@ app.get('/api/transactions', (req, res, next) => {
  * Identify the weekly expenses 
  * Run a cron job every 7 days to identify the expenses for the last week
 */
-app.get('/api/cron', (req,res,next) =>  {
-  cron.schedule('* * * * * *', () => {
-    var before = (new Date()).toISOString();
-    var since = (new Date(Date.now() - (7 * 24 * 60 * 60 * 1000))).toISOString();
-    axios.get('https://api.monzo.com/transactions', {
-          headers: {
-            Authorization: `Bearer ${config.apiKey}`
-          },
-          params: {
-            account_id: config.accountId,
-            since: since,      
-            before: before          
-          }
-        }).then(response => {
-          const cleanList = response.data.transactions;
-          const donation = cleanList.map(t => {
-              return Math.abs(t.amount)*0.1;            
-          });
-          console.log('running a task every second');
-          res.send(JSON.stringify(donation));  
-          next()       
-      });
-  });  
+app.get('/api/weekly-donation', (req,res,next) =>  {
+  var before = (new Date()).toISOString();
+  var since = (new Date(Date.now() - (7 * 24 * 60 * 60 * 1000))).toISOString();
+  var suggestedDonation = 0;
+  axios.get('https://api.monzo.com/transactions', {
+    headers: {
+      Authorization: `Bearer ${config.apiKey}`
+    },
+    params: {
+      account_id: config.accountId,
+      since: since,      
+      before: before          
+    }
+  }).then(response => {
+    const cleanList = response.data.transactions;
+    const donation = cleanList.map(t => {
+      suggestedDonation += Math.abs(t.amount)*0.1;         
+    });
+    console.log('running a task every second');
+    res.send(JSON.stringify(suggestedDonation));  
+    next();       
+  });
 });
 
 app.get('/pledge', calculatePledge);
