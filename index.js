@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 var cron = require('node-cron');
 const config = require('./config.json');
 const path = require('path');
@@ -10,12 +11,19 @@ var notification = require ('./actions/notification');
 const app = express();
 const port = 3000;
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-// app.use("/resources",express.static(__dirname + "/resources"));
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token'); // Request headers to allow  
+  next();
+});
 
 app.get('/api/transactions', (req, res, next) => {
   axios.get('https://api.monzo.com/transactions', {

@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "node-cron": "^2.0.3",
