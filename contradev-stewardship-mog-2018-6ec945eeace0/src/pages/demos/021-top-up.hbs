@@ -1,0 +1,31 @@
+---
+title: Top-up - Choose amount
+layout: base
+labels:
+  - inprogress
+  - top-up
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient top-up-screen
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}
+{{/embed}}
+<main>
+    <div class="wrapper">
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Top-up your giving account</h1>
+                 <h2>to start giving to all your favourite causes</h2>
+            {{/content}}
+        {{/embed}}
+        {{#embed "patterns.organisms.top-up-box.top-up-box"}}{{/embed}}
+        <div class="bottom top-up-buttons">
+            <div class="col-md-4">
+                <button class="btn btn-full">Top-up using credit / debit card</button>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

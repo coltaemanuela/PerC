@@ -1,0 +1,27 @@
+---
+name: Modal PopUp White
+notes: Place the modal after the '<Layout></Layout>' component and then set the isOpen prop to true (probably on state to open the Modal.
+links:
+    "Demo": /reactDemos/002-modal-popup.html
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red hide
+order: 2
+---
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactPopUpWhite" appId="DemoPopUpWhite"}}
+  {{#content "content"}}
+    <Modal
+        title="This is the modal title in WHITE"
+        isOpen={false}
+        closeHandler={(e) => console.log('close')}
+        white>
+            <p>Buttons in modals should be horizontal</p>
+            <ButtonGroup horizontal>
+                <Button>This is a button</Button>
+                <Button>This is a button</Button>
+            </ButtonGroup>
+    </Modal>
+  {{/content}}
+{{/embed}}

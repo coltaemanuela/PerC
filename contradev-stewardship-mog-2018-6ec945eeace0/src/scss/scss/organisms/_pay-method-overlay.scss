@@ -1,0 +1,47 @@
+.pay-method-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    //background-color: rgba($black, .8);
+    background-color: rgba($red-lighter, .8);
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backdrop-filter: blur(3px);
+    transition: opacity .5s ease-out, visibility .5s ease-out;
+}
+
+.pay-method-overlay-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pay-method-overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 25px;
+    padding: 20px;
+    transform: scale(.75) rotate(2deg) translateZ(1px);
+    opacity: 0;
+    transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .pay-method-overlay-visible & {
+        transform: scale(1) rotate(0deg) translateZ(1px);
+        opacity: 1;
+        transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+.pay-method-overlay h2 {
+    margin-bottom: 20px;
+}

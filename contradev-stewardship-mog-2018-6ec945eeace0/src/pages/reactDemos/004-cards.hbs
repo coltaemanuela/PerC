@@ -1,0 +1,75 @@
+---
+title: React - Cards
+notes: Demo of the various cards in the grid
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        constructor(props) {
+            super(props);
+
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick(event) {
+            alert('Card clicked.');
+        }
+
+        render() {
+
+            const para = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec commodo nisl. Aliquam vitae ipsum quis magna mollis vestibulum nec a mi. Quisque auctor ultricies eros sit amet dapibus. Donec sed hendrerit ipsum, vel fermentum libero. Morbi mattis commodo nunc, quis placerat lectus porttitor tempor.";
+
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title="The card component can be rendered in many different ways">
+                            <h2>With an image, without an image, with image in the background, light or dark</h2>
+                        </Top>
+                        <Middle columns="12">
+                            <p className="center">It has also been setup to snap to the grid by simply adding the column property.</p>
+                            <div className="row">
+                                <Card title="Simple card" subtitle="Card subtitle" onClick={this.handleClick} columns="4">
+                                    <p>{para}</p>
+                                </Card>
+                                <Card title="Card with image" subtitle="Card subtitle" imageUrl="http://via.placeholder.com/600x300" onClick={this.handleClick} columns="4">
+                                    <p>{para}</p>
+                                </Card>
+                                <Card title="Card with image background" subtitle="Card subtitle" imageUrl="http://via.placeholder.com/600x300" background onClick={this.handleClick} columns="4">
+                                    <p>{para}</p>
+                                </Card>
+                                <Card title="Card with image dark grey" subtitle="Card subtitle" imageUrl="http://via.placeholder.com/600x300" colour="grey-dark" onClick={this.handleClick} columns="8">
+                                    <p>{para}</p>
+                                </Card>
+                                <Card title="Simple card dark grey" subtitle="Card subtitle" onClick={this.handleClick} colour="grey-dark" columns="4">
+                                    <p>{para}</p>
+                                </Card>
+                            </div>
+                        </Middle>
+                    </Layout>
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

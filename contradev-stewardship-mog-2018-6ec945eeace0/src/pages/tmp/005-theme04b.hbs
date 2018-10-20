@@ -1,0 +1,32 @@
+---
+title: Colour option 04 - Top-up pages
+notes: Blue is for top-up.
+order: 3
+layout: base
+labels:
+  - inprogress
+  - theme
+styles:
+    - toolkit
+bodyclass:
+    - deep-gradient-2b home
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}{{/embed}}
+<main>
+    <div>
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Top up your account</h1>
+                 <h2>so you can start giving to all those lovely charities.</h2>
+            {{/content}}
+        {{/embed}}
+        {{#embed "patterns.organisms.top-up-box.top-up-box"}}{{/embed}}
+        <div class="footer top-up-buttons">
+            <div class="col-md-4">
+                <button class="btn btn-full">Top up using credit / debit card</button>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

@@ -1,0 +1,28 @@
+---
+name: Icons - Core
+notes: We have preselected a number of core icons and wrapped them in the component Atoms/IconSvg.  These should be the core icons that are used.
+links: 
+  "FontAwsome SVG Icons": https://fontawesome.com/icons?d=gallery
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+order: 1
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="react-core" appId="DemoCore"}}
+  {{#content "content"}}
+    <IconSvg />
+    <IconSvg type='top-up' />
+    <IconSvg type='gift' />
+    <ButtonGroup className="mt3" horizontal>
+        <Button><IconSvg type='top-up' /> Top-up</Button>
+        <Button><IconSvg type='gift' /> Give</Button>
+        <Button>Next <IconSvg /></Button>
+    </ButtonGroup>
+    <IconSvg type="creditcard" size={20} className="mr2" />
+    <IconSvg type="visa" size={30} className="mr2" />
+    <IconSvg type="amex" size={40} className="mr2" />
+    <IconSvg type="mastercard" size={50} className="mr2" />
+    <IconSvg type="visa" size={60} className="mr2" />
+  {{/content}}
+{{/embed}}

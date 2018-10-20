@@ -1,0 +1,54 @@
+---
+title: React - Gift Snippet
+notes: Demo of gift snippet preview on the confirm gift view
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        render() {
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title={["Your monthly gift of ", <Money>30.00</Money>, " to charity name"]}>
+                            <p className="h2 center">will be created and funded from your linked bank account</p>
+                        </Top>
+                        <Middle>
+                            <p className="h3 center">Example of how your gift will be displayed to the recipient</p>
+                            <GiftSnippet 
+                                name={user.userFullName}
+                                amount="12.00"
+                                giftAid
+                                giftAidAmount="2.0"
+                            />
+                        </Middle>
+                        <Bottom>
+                            <Button onClick={this.openModal}>Next <IconSvg /></Button>
+                        </Bottom>
+                    </Layout>
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

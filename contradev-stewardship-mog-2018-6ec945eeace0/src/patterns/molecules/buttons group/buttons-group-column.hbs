@@ -1,0 +1,22 @@
+---
+name: Buttons Grouped Column
+notes: React ButtonGroup default to full columns.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+
+<div class="buttons-group buttons-group-col">
+    <a href="#" class="btn">Link</a>
+    <a href="#" class="btn">Link</a>
+</div>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactButtonGroup" appId="DemoButtonGroup"}}
+  {{#content "content"}}
+    <ButtonGroup>
+          <Button>Button</Button>
+          <Button>Button</Button>
+    </ButtonGroup>
+  {{/content}}
+{{/embed}}

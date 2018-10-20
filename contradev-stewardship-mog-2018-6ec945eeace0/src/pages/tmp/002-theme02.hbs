@@ -1,0 +1,34 @@
+---
+title: Colour option 02
+notes: Red.
+order: 3
+layout: base
+labels:
+  - inprogress
+  - theme
+styles:
+    - toolkit
+bodyclass:
+    - primary-gradient home
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}{{/embed}}
+<main>
+    <div>
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Hello Ben</h1>
+                 <h2>Welcome back to your Stewardship Giving Account</h2>
+            {{/content}}
+        {{/embed}}
+        {{#embed "patterns.organisms.home-main-bubble.home-main-bubble"}}{{/embed}}
+    </div>
+</main>
+<div class="cards">
+    {{#embed "patterns.molecules.card.card-img" button-class="btn-primary"}}{{/embed}}
+    {{#embed "patterns.molecules.card.card-img" button-class="btn-primary"}}{{/embed}}
+    {{#embed "patterns.molecules.card.card-img" button-class="btn-primary"}}{{/embed}}
+</div>
+
+<script src="https://flickity.metafizzy.co/flickity.pkgd.js"></script>
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

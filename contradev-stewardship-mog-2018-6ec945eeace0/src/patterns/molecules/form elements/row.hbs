@@ -1,0 +1,31 @@
+---
+name: Form row
+notes: Wrap each form element with 'form-el', or better still use the FormRow + FormElement react component.
+order: 2
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+
+<div class="form-row">
+  <div class="col-md-12">
+    <div class="form-el">
+        <label for="">Text</label>
+        <div class="input"><input type="text" placeholder="Placeholder"></div>
+    </div>
+  </div>
+</div>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactFormRow" appId="DemoFormRow"}}
+  {{#content "content"}}
+    <FormRow>
+      <FormElement label="label" name="inputName2" columns="6">
+        <input type="text" name="inputName2" placeholder="Placeholder" />
+      </FormElement>
+      <FormElement label="label" name="inputName3" columns="6">
+        <input type="text" name="inputName3" placeholder="Placeholder" />
+      </FormElement>
+    </FormRow>
+  {{/content}}
+{{/embed}}

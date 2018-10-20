@@ -1,0 +1,37 @@
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $white;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    appearance: none;
+    font-size: 20px;
+    line-height: 40px;
+    //position: relative;
+
+    &[data-count]:after {
+        content: attr(data-count);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        background-color: $green;
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        border-radius: 50%;
+        font-size: 13px;
+        line-height: 20px;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

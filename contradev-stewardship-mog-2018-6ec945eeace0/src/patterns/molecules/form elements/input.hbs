@@ -1,0 +1,31 @@
+---
+name: Inputs
+notes: Use Cleave for any complex input masking (already included in package.json)
+order: 3
+links:
+    "Cleave.js": https://nosir.github.io/cleave.js/
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactFormInputs" appId="DemoFormInputs"}}
+  {{#content "content"}}
+  <FormRow>
+    <FormElement label="Text" name="inputName">
+      <input type="text" name="inputName" placeholder="Placeholder" />
+    </FormElement>
+  </FormRow>
+  <FormRow>
+    <FormElement label="Password" name="inputName2">
+      <input type="password" name="inputName2" placeholder="Placeholder" />
+    </FormElement>
+  </FormRow>
+  <FormRow>
+    <FormElement label="Masked date" name="inputName3">
+        <Cleave name="inputName3" options=\{{date: true, datePattern: ['m', 'y']}} placeholder="MM/YY" />
+    </FormElement>
+  </FormRow>
+  {{/content}}
+{{/embed}}

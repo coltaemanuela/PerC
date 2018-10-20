@@ -1,0 +1,23 @@
+---
+name: Primary Button
+notes: |
+  Primary buttons are always white and can be either an 'a' or 'button'.
+order: 1
+labels:
+  - approved
+  - react
+previewClass: bg-red
+---
+
+{{#embed "patterns.atoms.buttons.base" class=""}}
+  {{#content "content"}}
+    Primary Button
+  {{/content}}
+{{/embed}}
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactButton" appId="DemoButton"}}
+  {{#content "content"}}
+    <Button full={false}>Primary Button (a)</Button>
+    <Button full={false} elementType="button">Primary Button (button)</Button>
+  {{/content}}
+{{/embed}}

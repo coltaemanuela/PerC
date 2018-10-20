@@ -1,0 +1,20 @@
+---
+name: Middle
+notes: The middle block is centered vertically within the viewport.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red hide
+order: 3
+---
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactLayoutTop" appId="DemoLayoutTop"}}
+  {{#content "content"}}
+    <Layout>
+        <Middle columns="12">
+            <p>props = columns (defaults to 6) and left (defaults to false)</p>
+            /*<Middle left>Children</Middle>*/
+        </Middle>
+    </Layout>
+  {{/content}}
+{{/embed}}

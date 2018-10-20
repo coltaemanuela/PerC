@@ -1,0 +1,22 @@
+---
+name: Bottom
+notes: The bottom block is positioned at the bottom of the viewport.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red hide
+order: 4
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="reactLayoutTop" appId="DemoLayoutTop"}}
+  {{#content "content"}}
+    <Layout>
+        <Bottom columns="12">
+            /*columns default to 6*/
+            <ButtonGroup>
+                <Button>Sign the GiftAid declaration</Button>
+                <Button>Sign the GiftAid declaration</Button>
+            </ButtonGroup>
+        </Middle>
+    </Layout>
+  {{/content}}
+{{/embed}}

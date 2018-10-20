@@ -1,0 +1,44 @@
+---
+title: Stewardship MOG 2018 - framework
+order: 1
+---
+
+<h1>{{title}}</h1>
+
+<h2>A bespoke frontend framework developed by Contra Agency for the new Stewardship Mobile Online Giving platform.</h2>
+<p>
+  The framework is based on an atomic design with components being contructed from a collection of atoms and molecules.
+  Atoms are the smallest unit of HTML and include things like headings, buttons and form elements.
+  Combining a few atoms forms a molecule.  Think form row (label and input combined).  More complex molecules form organisms.
+  Think a form, or card.
+</p>
+<h2>Technology</h2>
+<p>
+  The framework is constructed in SCSS, HTML5 and React, compiled down to CSS via gulp (with autoprefixer and a few other goodies for good measure).
+  The documentation is built using drizzle, a static site generator built in node that is designed specifically to handle frontend framework documentation.
+  </p>
+
+  <h2>The most important files/folders:</h2>
+  <p>The <strong>dist</strong> folder contains the built CSS and assets which you can use in developement/production. The <strong>src</strong> folder contains the source react and scss files.</p>
+  <pre>
+      Stewardship-mog-2018
+      ├── dist
+      ├── src
+      │   ├── ...
+      │   ├── react (React components)
+      │   ├── scss  (SCSS source styles)
+      │   ├── pages
+      │   │   └── reactDemos (React demos)
+      │   └── ...
+      ├── README.md
+      └─── ...
+</pre>
+<h2>The least important files:</h2>
+<p>The JS that was developed for the non react demo's was developed as quick and dirty hacks to help us prototype. Please don't use any of it in production/development.  :)</p>
+<h2>Getting started</h2>
+<p>Gulp and Webpack build and transpile the src folder.  After running '$ npm start' you can use 'gulp --dev'.</p>
+<pre>
+  $ git clone git@bitbucket.org:contradev/stewardship-mog-2018.git
+  $ npm start
+  $ gulp --dev
+</pre>

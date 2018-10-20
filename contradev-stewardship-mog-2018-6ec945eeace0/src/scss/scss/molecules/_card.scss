@@ -1,0 +1,268 @@
+.card {
+    width: 100%;
+    min-height: 1px;
+    background-color: white;
+    color: $secondary;
+    border-radius: 4px;
+    margin: 0 0 30px 0;
+
+    .drizzle-u-pad & {
+        max-width: 400px;
+        float: left;
+        margin: 0 10px 10px 0;
+    }
+
+    .card-content {
+        padding: 30px;
+    }
+
+    .sup-title {
+        opacity: .6;
+        line-height: 1em;
+        margin-bottom: 0px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    &-red,
+    &-red-light,
+    &-peach,
+    &-pink,
+    &-purple,
+    &-purple-light,
+    &-blue,
+    &-green,
+    &-green-cold,
+    &-grey,
+    &-grey-dark {
+        color: white;
+    }
+    &-red {
+        background-color: $red;
+    }
+    &-red-light {
+        background-color: $red-lighter;
+    }
+    &-peach {
+        background-color: $peach;
+    }
+    &-pink {
+        background-color: $pink-flashy;
+    }
+    &-purple {
+        background-color: $purple;
+    }
+    &-purple-light {
+        background-color: $purple-light;
+    }
+    &-blue {
+        background-color: $blue;
+    }
+    &-green {
+        background-color: $green;
+    }
+    &-green-cold {
+        background-color: $green-cold;
+    }
+    &-yellow {
+        background-color: $yellow;
+    }
+    &-grey {
+        background-color: $grey-charcoal;
+    }
+    &-grey-dark {
+        background-color: $grey-charcoal-darker;
+    }
+    &-white-dotted {
+        border: 5px dashed $white;
+        background: none;
+        color: $white;
+        border-radius: 30px;
+    }
+    &-white-outline {
+        border: 2px solid $white;
+        background: none;
+        color: $white;
+        border-radius: 30px;
+    }
+
+}
+
+.card-title {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.card-img {
+    width: 100%;
+
+    img {
+        width: 100%;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+}
+
+.card-stat {
+    position: relative;
+    background-color: $white;
+    color: $secondary;
+    padding: $gutter;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2);
+    
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0px;
+        bottom: -3px;
+        background-color: transparent;
+        border-bottom: dotted 10px $white;
+    }
+}
+
+.card-stat-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-stat-you {
+    font-size: 20px;
+}
+
+.card-stat-you,
+.card-stat-gift {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-stat-you {
+    margin-bottom: 5px;
+}
+
+.card-stat-gift {
+    margin-bottom: 15px;
+}
+
+.card-stat-message {
+    
+    textarea {
+        border: 1px solid rgba($secondary, .2);
+    }
+}
+
+// Card Image in Background
+
+.card-bg-img {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+
+    // .card-img {
+    //     width: 120%;
+    //     height: 120%;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translateX(-50%) translateY(-50%);
+        
+    //     img {
+    //         width: auto;
+    //         height: 100%;
+    //         opacity: .6;
+    //     }
+    // }
+
+    .card-content {
+        position: relative;
+    }
+
+    .card-title {
+        font-family: $font-bold;
+        font-size: 35px;
+        margin-bottom: 125px;
+    }
+}
+
+// Card with buttons
+
+.card-w-btn {
+    margin: 0;
+    padding: 0;
+    max-height: 242px;
+    overflow: auto;
+    list-style-type: none;
+    //background-color: $white;
+    color: $secondary;
+    // border-radius: $radius;
+
+    .card-w-btn-card {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        //border-radius: $radius;
+
+        > div {
+            width: 100%;
+            margin-right: 1px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        .card-w-btn-main {
+            padding: 20px;
+            background-color: white;
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+
+            > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+
+            // a {
+            //     color: inherit;
+            // }
+        }
+
+        .card-w-btn-action {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+
+            a { 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: $secondary;
+                background-color: white;
+                flex: 1 1 auto;
+                margin-bottom: 1px;
+                border-top-right-radius: $radius;
+                font-size: 25px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: $radius;
+                }
+
+                &:hover {
+                    background-color: darken($white, 5%);
+                }
+                
+            }
+        }
+    }
+}
+

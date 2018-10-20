@@ -1,0 +1,49 @@
+---
+title: React - Basic layout demo
+notes: Demo of the basic structure (TopBar, Layout, Top, Middle, Bottom, Footer)
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    const Demo = () => {
+        return (
+            <React.Fragment>
+                <TopBar {...user} {...balance} notifications={notifications}/>
+                <Layout>
+                    <Top title="Basic layout example">
+                        <h2>built using the react components</h2>
+                    </Top>
+                    <Middle>
+                        <p className="text-center">props = columns (defaults to 6)</p>
+                        <p className="text-center">props = top (defaults to false)</p>
+                    </Middle>
+                    <Bottom>
+                        <ButtonGroup>
+                            <Button>Sign the GiftAid declaration</Button>
+                            <Button>Sign the GiftAid declaration</Button>
+                        </ButtonGroup>
+                    </Bottom>
+                </Layout>
+                <Footer />
+            </React.Fragment>
+        );
+    };
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

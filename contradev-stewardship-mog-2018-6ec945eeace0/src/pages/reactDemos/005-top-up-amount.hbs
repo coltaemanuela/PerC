@@ -1,0 +1,69 @@
+---
+title: React - Top-up amount
+notes: Demo of the top up amound component
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        constructor(props) {
+            super(props);
+
+            this.handleAmountChange = this.handleAmountChange.bind(this);
+
+            this.state = {
+                topUpAmount: 0
+            };
+        }
+
+        handleAmountChange(e) {
+            // Demo example of how to bring the values into the parent conponents state.
+            this.setState({
+                topUpAmount: e.amount,
+                topUpCalAmount: e.calculatedAmount
+            });
+        }
+
+        render() {
+
+            const para = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec commodo nisl. Aliquam vitae ipsum quis magna mollis vestibulum nec a mi. Quisque auctor ultricies eros sit amet dapibus. Donec sed hendrerit ipsum, vel fermentum libero. Morbi mattis commodo nunc, quis placerat lectus porttitor tempor.";
+
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title="Top-up Amount">
+                            <h2>The entered value is (demo): <Money>{this.state.topUpAmount}</Money> and the calculated value is: <Money>{this.state.topUpCalAmount}</Money></h2>
+                        </Top>
+                        <Middle columns="12">
+                            <TopUpAmount giftAid onChange={this.handleAmountChange} />
+                        </Middle>
+                        <Bottom>
+                            <Button className={this.state.topUpAmount > 0 ? '' : 'hidden'}>Next <IconSvg /></Button>
+                        </Bottom>
+                    </Layout>
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

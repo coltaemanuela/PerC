@@ -1,0 +1,33 @@
+---
+name: Base HTML (phsudo)
+notes: The page is constructed with the following core elements.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red hide
+bodyclass: primary-gradient
+order: 1
+---
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <header>The header contains the navbar</header>
+    <main>
+      <div class="wrapper">
+        The core of the application goes here
+      </div>
+    </main>
+    <footer>Traditional footer</footer>
+  </body>
+</html>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactLayout" appId="DemoLayout"}}
+  {{#content "content"}}
+    <TopBar {...user} {...balance} notifications={notifications}/>
+    <Layout>
+        
+    </Layout>
+    <Footer />
+  {{/content}}
+{{/embed}}

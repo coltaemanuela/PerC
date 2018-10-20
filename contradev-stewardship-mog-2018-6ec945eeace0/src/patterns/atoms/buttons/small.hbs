@@ -1,0 +1,18 @@
+---
+name: Small Button
+notes: |
+  This is a small button, good for inside cards.
+order: 7
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+<a href="#" class="btn btn-small">Link</a>
+<button class="btn btn-small">Button</button>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactButtonSmall" appId="DemoButtonSmall"}}
+  {{#content "content"}}
+    <Button small full={false}>Small Button</Button>
+  {{/content}}
+{{/embed}}

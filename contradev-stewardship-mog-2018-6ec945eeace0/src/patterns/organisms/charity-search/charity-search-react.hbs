@@ -1,0 +1,17 @@
+---
+name: Charity Search
+notes: The charity search component uses 'React Autosuggest' to expose a searchable list of charities. It can be configured to work asyncronously with data on the server which is probably the prefered approach.
+links:
+    "Autosugges documentation": http://react-autosuggest.js.org/
+    "Example": /reactDemos/007-charity-search.html
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="reactCharitySearch" appId="DemoCharitySearch"}}
+  {{#content "content"}}
+    <CharitySearch charities={charities} />
+    <div className="mb10">spacer - just for demo, ignore me.</div>
+  {{/content}}
+{{/embed}}

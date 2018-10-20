@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{#block "head"}}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      {{#if title}}
+        <title>{{title}} - {{data "project.title"}}</title>
+      {{else if name}}
+        <title>{{name}} - {{data "project.title"}}</title>
+      {{else}}
+        <title>{{data "project.title"}}</title>
+      {{/if}}
+      {{#each styles}}
+        <link rel="stylesheet" href="{{@root.baseurl}}/assets/toolkit/styles/{{this}}.css?v=3">
+      {{/each}}
+    {{/block}}
+  </head>
+  <body class="{{bodyclass}}">
+    {{#block "body"}}
+      {{#block "main"}}
+
+      {{/block}}
+    {{/block}}
+    {{#block "foot"}}
+
+    {{/block}}
+
+    {{#embed "patterns.organisms.footer.footer"}}
+    {{/embed}}
+  </body>
+  <script src="{{@root.baseurl}}/assets/drizzle/scripts/drizzle.js"></script>
+  <script src="{{@root.baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
+</html>

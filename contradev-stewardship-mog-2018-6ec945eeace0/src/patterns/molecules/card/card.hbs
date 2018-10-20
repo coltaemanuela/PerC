@@ -1,0 +1,21 @@
+---
+name: Card
+notes: This is the most basic card demo.  Cards can have an onClick handler to pick up any actions.
+labels:
+  - approved
+  - react
+order: 1
+previewClass: drizzle-u-rhythm bg-red
+hidden: true
+---
+<div class="card {{class}}">
+    {{#block "img"}}{{/block}}
+    <div class="card-content">
+    {{#block 'content'}}
+        <h2 class="sup-title">UK Tax payer?</h2>
+        <h3 class="card-title">Boost your gift</h3>
+        <p>If you are a UK tax payer then all your top-ups and gifts will be boosted by signing the GiftAid delcalation</p>
+        <a href="#" class="btn btn-small btn-secondary">Sign the GiftAid declaration</a>
+    {{/block}}
+    </div>
+</div>

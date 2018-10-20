@@ -1,0 +1,24 @@
+---
+name: Top Up Amount - no GiftAid
+notes: The fee calculations will need to be checked and possibly elaborated upon.
+labels:
+  - approved
+  - react
+links: 
+    "Demo": /reactDemos/005-top-up-amount.html
+previewClass: drizzle-u-rhythm bg-red
+hidden: true
+---
+
+<div class="top-up middle">
+    <div class="top-up-circle">
+        <div class="top-up-amount">
+            <div class="top-up-amount-input-box">
+                <input class="top-up-input" id="amount" min="0" type="number" pattern="[0-9]*" inputmode="numeric" value="{{value}}">
+            </div>
+        </div>
+        <div class="top-up-info">
+            <span class="top-up-info-converted money">50</span>
+        </div>
+    </div>
+</div>

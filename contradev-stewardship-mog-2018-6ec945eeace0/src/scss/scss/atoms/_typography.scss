@@ -1,0 +1,109 @@
+body {
+    font-family: $font;
+    -webkit-font-smoothing: antialiased;
+    color: white;
+}
+
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    font-family: $font-secondary;
+    line-height: 1em;
+    font-weight: 100;
+    margin-bottom: .65em;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+h1, .h1 {
+    font-size: 30px;
+    margin-bottom: .5em;
+
+
+    @include media-breakpoint-up('sm') {
+        font-size: 53px;
+    }
+
+}
+
+h2, .h2 {
+    font-size: 20px;
+    
+    @include media-breakpoint-up('sm') {
+        font-size: 30px;
+    }
+}
+
+h3, .h3 {
+    font-size: 24px;
+}
+
+h4, .h4 {
+    font-size: 22px;
+}
+
+h5, .h5, .sup-title {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+h6, .h6 {
+    font-size: 30px;
+}
+
+a {
+    color: currentColor;
+     img {
+         border: none;
+     }
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 1em;
+    &.center {
+        text-align: center;
+    }
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.money {
+    &:before {
+        content: "£";
+        font-size: 0.75em;
+        padding-right: 0.15em;
+    }
+}
+
+hr {
+    border: 1px solid lighten($primary, 20%);
+}
+
+main {
+    ul, ol {
+        li {
+            margin: 0 0 0 $gutter;
+            padding: 0 0 0 $gutter/2;
+        }
+    }
+    ul li {
+        list-style-type: disc;
+    }
+    ol li {
+        list-style-type: decimal;
+    }
+    ul, ol {
+        &.plain li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}

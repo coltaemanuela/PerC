@@ -1,0 +1,31 @@
+---
+name: The whole thing 
+notes: The page is constructed with the following core elements.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red hide
+bodyclass: primary-gradient
+order: 0
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="reactLayout" appId="DemoLayout"}}
+  {{#content "content"}}
+    <TopBar {...user} {...balance} notifications={notifications} />
+    <Layout>
+        <Top title="Basic layout example">
+            <h2>built using the react components</h2>
+        </Top>
+        <Middle columns="12">
+            <p>props = columns (defaults to 6) and left (defaults to false)</p>
+            /*<Middle left>Children</Middle>*/
+        </Middle>
+        <Bottom>
+            <ButtonGroup>
+                <Button>Sign the GiftAid declaration</Button>
+                <Button>Sign the GiftAid declaration</Button>
+            </ButtonGroup>
+        </Bottom>
+    </Layout>
+    <Footer />
+  {{/content}}
+{{/embed}}

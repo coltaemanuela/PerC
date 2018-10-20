@@ -1,0 +1,7 @@
+# Override the default folder-based name ("Typographic")
+name: Icons
+
+# Make this appear before its sibling collections in listings
+order: 2
+
+notes: For now we have included 2 icons sets that are open source. Ionic and FontAwsome.  We recomend purchasing a liscence for FontAwsome Pro and then using the lighter SVG fonts throughout the system as it will fit well with the main typeface and will also help to create consistency.

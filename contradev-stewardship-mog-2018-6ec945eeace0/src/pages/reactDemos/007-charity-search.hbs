@@ -1,0 +1,143 @@
+---
+title: React - Charity search and favourites
+notes: Demo of the charity search and favourites components. Also features the modal popup.
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        constructor(props) {
+            super(props);
+
+            this.state = {
+                favs: favs,
+                charitySearchSearching: false,
+                charitySearchBlur: true,
+                charitySearchValue: '',
+                modalOpen: false,
+                charitySearchSelection: {}
+            };
+
+            this.removeCharity = this.removeCharity.bind(this);
+            this.addFavDemo = this.addFavDemo.bind(this);
+            this.onCharitySearchChange = this.onCharitySearchChange.bind(this);
+            this.onCharitySearchBlur = this.onCharitySearchBlur.bind(this);
+            this.onCharitySearchSelected = this.onCharitySearchSelected.bind(this);
+            this.openModal = this.openModal.bind(this);
+            this.closeModal = this.closeModal.bind(this);
+        }
+
+        removeCharity(id) {
+            // Send ID back to server here
+            console.log(id);
+            this.setState(previousState => ({
+                favs: previousState.favs.filter((charity) => charity.charityId !== id)
+            }));
+        }
+
+        addFavDemo() {
+            this.setState((previousState) => {
+                let favs = previousState.favs;
+                favs.push(
+                {
+                    charityId: faker.random.number(),
+                    charityName: faker.company.companyName(),
+                    charityUrl: faker.internet.url(),
+                    charityNumber: faker.random.number(),
+                    favourited: true
+                }
+                );
+                return (favs: favs);
+            });
+        }
+
+        onCharitySearchChange(val) {
+            this.setState({
+                charitySearchSearching: val.length > 0,
+                charitySearchValue: val,
+                charitySearchBlur: false
+            });
+        }
+
+        onCharitySearchBlur(event) {
+            this.setState({
+                charitySearchBlur: true
+            });
+        }
+
+        onCharitySearchSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) {
+            this.setState({
+                charitySearchSelection: suggestion,
+                modalOpen: true
+            })
+        }
+
+        openModal() {
+            this.setState(prevState => ({
+                modalOpen: true
+            }));
+        }
+
+        closeModal() {
+            this.setState(prevState => ({
+                modalOpen: false
+            }));
+        }
+
+        render() {
+
+            const modal = (
+                <Modal
+                    title={this.state.charitySearchSelection.charityName}
+                    isOpen={this.state.modalOpen}
+                    closeHandler={this.closeModal}
+                    white>
+                        <p>Buttons in modals should be horizontal</p>
+                        <ButtonGroup horizontal>
+                            <Button>This is a button</Button>
+                            <Button>This is a button</Button>
+                        </ButtonGroup>
+                </Modal>
+            );
+
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title="Top-up Amount">
+                            <h2>The entered value is (demo): <Money>{this.state.topUpAmount}</Money> and the calculated value is: <Money>{this.state.topUpCalAmount}</Money></h2>
+                        </Top>
+                        <Middle columns="6" top>
+                            <CharitySearch charities={charities} onChange={this.onCharitySearchChange} onBlur={this.onCharitySearchBlur} onSuggestionSelected={this.onCharitySearchSelected} />
+                            <Favourites favourites={this.state.favs} removeCharity={this.removeCharity} className={this.state.charitySearchSearching && !this.state.charitySearchBlur ? 'charity-fav-hidden' : ''} />
+                        </Middle>
+                        <Bottom>
+                            <Button onClick={this.addFavDemo}>Add fav (demo only)</Button>
+                        </Bottom>
+                    </Layout>
+                    <Footer />
+                    {modal}
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

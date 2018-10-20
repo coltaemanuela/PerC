@@ -1,0 +1,17 @@
+---
+name: Button Special
+notes: |
+  This is an animated button, we might make this the default behaviour... For now it is experimental.
+labels:
+  - inprogress
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+<a href="#" class="btn btn-special">Link</a>
+<button class="btn btn-special">Button</button>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactButtonSpecial" appId="DemoButtonSpecial"}}
+  {{#content "content"}}
+    <Button type="special">Special Button</Button>
+  {{/content}}
+{{/embed}}

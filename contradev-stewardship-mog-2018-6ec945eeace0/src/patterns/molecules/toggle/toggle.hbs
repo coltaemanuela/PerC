@@ -1,0 +1,24 @@
+---
+name: Toggle
+notes: The react toggle component acts like a checkbox.
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+hidden: false
+---
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactToggle" appId="DemoToggle"}}
+  {{#content "content"}}
+  <FormRow>
+    <FormElement columns="6">
+      <Toggle id="toggle" label="Turn on?" onChange={(e) => alert(e.target.checked)}></Toggle>
+    </FormElement>
+    </FormRow>
+    <FormRow>
+    <FormElement columns="6">
+      <Toggle id="toggle" label="Turn on?" onChange={(e) => alert(e.target.checked)}></Toggle>
+    </FormElement>
+  </FormRow>
+  {{/content}}
+{{/embed}}

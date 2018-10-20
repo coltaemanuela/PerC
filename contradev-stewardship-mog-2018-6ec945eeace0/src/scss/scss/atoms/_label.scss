@@ -1,0 +1,24 @@
+label {
+    display: inline-block;
+
+    &:after {
+        content: attr(data-invalid);
+        font-family: $font-bold;
+        padding-left: 10px;
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        transform: translateY(-25px);
+        transition: all 250ms ease-in;
+    }
+
+    .form-el-error & {
+        // color: #880000;
+
+        &:after {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: all 500ms ease-out;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+---
+name: Gift Snippet
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+links:
+    "Demo": /reactDemos/003-gift-snippet.html
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="reactCard" appId="DemoCard"}}
+  {{#content "content"}}
+  <div className="col-md-8">
+    <h2>With GiftAid</h2>
+    <GiftSnippet 
+        name={user.userFullName}
+        amount="12.00"
+        giftAid
+        giftAidAmount="2.0"
+        onChange={(e) => console.log(e)}
+    />
+    <h2 className="mt2">Without GiftAid</h2>
+    <GiftSnippet 
+        name={user.userFullName}
+        amount="12.00"
+        giftAidAmount="2.0"
+        onChange={(e) => console.log(e)}
+    />
+  </div>
+  {{/content}}
+{{/embed}}

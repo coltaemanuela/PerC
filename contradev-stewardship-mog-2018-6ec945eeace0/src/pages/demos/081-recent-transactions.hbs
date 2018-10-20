@@ -1,0 +1,34 @@
+---
+title: Recent Transactions / Activity
+notes: Recent Transactions
+layout: base
+labels:
+  - inprogress
+  - prototype
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient report
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}
+{{/embed}}
+<main>
+    <div class="wrapper">
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Recent activity</h1>
+                 <h2>Keep up the good work Ben!</h2>
+            {{/content}}
+        {{/embed}}
+        {{#embed "patterns.organisms.recent-transactions.recent-transactions"}}{{/embed}}
+        <div class="bottom">
+            <div class="col-md-4">
+                <button class="btn btn-full">Download detailed statement</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://flickity.metafizzy.co/flickity.pkgd.js"></script>
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

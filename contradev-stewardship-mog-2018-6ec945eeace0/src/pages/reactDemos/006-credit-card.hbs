@@ -1,0 +1,73 @@
+---
+title: React - Credit card details
+notes: Demo of the credit card details view
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        constructor(props) {
+            super(props);
+
+            this.handleChange = this.handleChange.bind(this);
+
+            this.state = {
+                creditCardForm: {},
+                valid: false
+            };
+        }
+
+        handleChange(form) {
+            // Demo example of how to bring the values into the parent conponents state.
+
+            const valid = Object.keys(form).every(field => {
+                return form[field].touched && !form[field].invalid
+            });
+
+            this.setState({
+                creditCardForm: form,
+                valid: valid
+            });
+        }
+
+        render() {
+
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title="Top-up Amount">
+                            <h2>The entered value is (demo): <Money>{this.state.topUpAmount}</Money> and the calculated value is: <Money>{this.state.topUpCalAmount}</Money></h2>
+                        </Top>
+                        <Middle columns="6">
+                            <CreditCard cardName={user.userFullName} onChange={this.handleChange} />
+                        </Middle>
+                        <Bottom>
+                            <Button className={this.state.valid > 0 ? '' : 'hidden'}>Next <IconSvg /></Button>
+                        </Bottom>
+                    </Layout>
+                    <Footer />
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

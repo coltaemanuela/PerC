@@ -1,0 +1,107 @@
+---
+title: React - Modal popup demo
+notes: Demo of the 2 main modal popup styles
+layout: reactBase
+labels:
+  - approved
+  - react
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+<script type="text/babel">
+
+    // Fake model is set in hbs layout: reactBase
+
+    class Demo extends React.Component {
+
+        constructor(props) {
+            super(props);
+            this.state = {
+                modalOpen: false,
+                modalWhiteOpen: false
+            };
+            this.openModal = this.openModal.bind(this);
+            this.closeModal = this.closeModal.bind(this);
+        }
+
+        openModal(m) {
+            this.setState(prevState => ({
+                [m]: true
+            }));
+        }
+
+        closeModal() {
+            this.setState(prevState => ({
+                modalOpen: false,
+                modalWhiteOpen: false
+            }));
+        }
+
+        render() {
+
+            const modalx = (
+                <Modal
+                    title="This is the modal title"
+                    isOpen={this.state.modalOpen}
+                    closeHandler={this.closeModal}>
+                        <p>Buttons in modals should be horizontal</p>
+                        <ButtonGroup horizontal>
+                            <Button>This is a button</Button>
+                            <Button>This is a button</Button>
+                        </ButtonGroup>
+                </Modal>
+            );
+
+            const modalWhitex = (
+                <Modal
+                    title="This is the modal title"
+                    isOpen={this.state.modalWhiteOpen}
+                    closeHandler={this.closeModal}
+                    white>
+                        <p>Buttons in modals should be horizontal</p>
+                        <ButtonGroup horizontal>
+                            <Button>This is a button</Button>
+                            <Button>This is a button</Button>
+                        </ButtonGroup>
+                </Modal>
+            );
+
+            const modalClick = this.openModal.bind(this, 'modalOpen');
+            const modalWhiteClick = this.openModal.bind(this, 'modalWhiteOpen');
+
+            return (
+                <React.Fragment>
+                    <TopBar {...user} {...balance} notifications={notifications}/>
+                    <Layout>
+                        <Top title="Hi there">
+                            <h2>how are you doing?</h2>
+                        </Top>
+                        <Middle>
+                            <p>99% of the time you should use the normal modal whitout the white background.</p>
+                        </Middle>
+                        <Bottom>
+                            <ButtonGroup>
+                                <Button onClick={modalClick}>Open modal pop up</Button>
+                                <Button onClick={modalWhiteClick}>Open modal pop up (white)</Button>
+                            </ButtonGroup>
+                        </Bottom>
+                    </Layout>
+                    <Footer />
+                    {modalx}
+                    {modalWhitex}
+                </React.Fragment>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById('root')
+    );
+
+</script>
+
+

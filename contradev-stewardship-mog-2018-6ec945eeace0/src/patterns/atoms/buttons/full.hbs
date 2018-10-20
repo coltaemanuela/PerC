@@ -1,0 +1,19 @@
+---
+name: Full Width Button
+notes: |
+  By default React Buttons are full width and 'a'.
+order: 2
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+---
+<a href="#" class="btn btn-full">Link</a>
+<button class="btn btn-full">Button</button>
+
+{{#embed "patterns.atoms.reactWrapper" root_id="reactButtonFull" appId="DemoButtonFull"}}
+  {{#content "content"}}
+    <Button>Primary Button (a)</Button>
+    <Button elementType="button">Primary Button (button)</Button>
+  {{/content}}
+{{/embed}}

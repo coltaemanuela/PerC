@@ -1,0 +1,65 @@
+---
+title: Colour option 04 - Give pages
+notes: Pink is for give.
+order: 3
+layout: base
+labels:
+  - inprogress
+  - theme
+styles:
+    - toolkit
+bodyclass:
+    - deep-gradient-2p home
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}{{/embed}}
+<main>
+    <div>
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Your monthly gift of <span class="money">30</span> to charity name</h1>
+                 <h2>will be created and funded from your linked bank account. </h2>
+            {{/content}}
+        {{/embed}}
+        <div class="middle justify-content-center">
+            <div class="col-md-6">
+                <div class="stat-toggles">
+                    <div>
+                        <label for="anonym">Hide my name and make anonymous</label>
+                        <div class="toggle-and-checkbox">
+                            <input type="checkbox" name="anonym" id="anonym">
+                            <div class="toggle">
+                                <div class="toggle-ball"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="card-stat-title">Example of how your gift will be displayed</h3>
+                <div class="card-stat">
+                    <div class="card-stat-you"><span class="card-stat-you-name">Ben Edge</span> <span>£24.60</span></div>
+                    <div class="card-stat-gift"><span>GiftAid added</span> <span>£6.60</span></div>
+                    <div class="card-stat-message"><textarea name="" id="" placeholder="Enter a reference here if you wish"></textarea></div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom justify-content-center">
+            <div class="col-md-4">
+                <button class="btn btn-full btn-negative switch-funding">Change funding source</button>
+                <button class="btn btn-full">Create new monthly gifts</button>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="pay-method-overlay">
+    <button class="close-overlay">Close Overlay</button>
+    <div class="pay-method-overlay-content">
+        <h2 class="h1">How would you like to fund your top-up?</h2>
+        <div class="buttons-group buttons-group-row col-sm-6">
+            <button class="btn">Card</button>
+            <button class="btn">Bank account</button>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

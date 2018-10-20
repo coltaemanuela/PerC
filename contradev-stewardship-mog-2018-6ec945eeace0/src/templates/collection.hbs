@@ -1,0 +1,13 @@
+{{#extend "default"}}
+  {{#content "main"}}
+    <h1>{{name}}</h1>
+    {{#if notes}}
+      <p>
+        {{notes}}
+      </p>
+    {{/if}}
+    {{#each patterns}}
+      {{> drizzle.item}}
+    {{/each}}
+  {{/content}}
+{{/extend}}

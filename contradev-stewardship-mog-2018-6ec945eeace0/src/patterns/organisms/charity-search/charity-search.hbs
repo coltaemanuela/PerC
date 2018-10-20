@@ -1,0 +1,35 @@
+---
+name: Charity Search
+notes: The charity search component uses 'React Autosuggest' to expose a searchable list of charities. It can be configured to work asyncronously with data on the server which is probably the prefered approach.
+links:
+    "Autosugges documentation": http://react-autosuggest.js.org/
+    "Example": /reactDemos/007-charity-search.html
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+hidden: true
+---
+<div class="charity-search-box">
+        <div class="input">
+            <input type="text" class="charity-search-input" placeholder="Search for a charity">
+        </div>
+        <ul class="charity-drop-down">
+            <li>
+                <div><a href="#" class="charity-name">Charity name 1</a><a href="#" class="add-to-fav" title="Add to favorites"><i class="ion-ios-heart-outline"></i></a></div>
+                <div><a href="#" alt="">www.charity.org.uk</a> <span># 123456789</span></div>
+            </li>
+            <li>
+                <div><a href="#" class="charity-name">Charity name 2</a><a href="#" class="add-to-fav  add-to-fav-added" title="Add to favorites"><i class="ion-ios-heart"></i></a></div>
+                <div><a href="#" alt="">www.charity.org.uk</a> <span># 123456789</span></div>
+            </li>
+            <li>
+                <div><a href="#" class="charity-name">Charity name 3</a><a href="#" class="add-to-fav" title="Add to favorites"><i class="ion-ios-heart-outline"></i></a></div>
+                <div><a href="#" alt="">www.charity.org.uk</a> <span># 123456789</span></div>
+            </li>
+            <li>
+                <div><a href="#" class="charity-name">Charity name 4</a><a href="#" class="add-to-fav" title="Add to favorites"><i class="ion-ios-heart-outline"></i></a></div>
+                <div><a href="#" alt="">www.charity.org.uk</a> <span># 123456789</span></div>
+            </li>
+        </ul>
+</div>

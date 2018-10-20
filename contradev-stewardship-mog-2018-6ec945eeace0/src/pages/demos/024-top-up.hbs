@@ -1,0 +1,46 @@
+---
+title: Confirm Top-up
+layout: base
+labels:
+  - inprogress
+  - top-up
+styles:
+  - toolkit
+bodyclass:
+    - primary-gradient
+---
+
+{{#embed "patterns.organisms.topbar.topbar"}}
+{{/embed}}
+<main>
+    <div class="wrapper">
+        {{#embed "patterns.organisms.top"}}
+            {{#content "content"}}
+                 <h1>Last step... Confirm your monthly top-up</h1>
+            {{/content}}
+        {{/embed}}
+        <div class="middle justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center">Your <span class="money">66</span> top-up set for the 1st of every month will be amended to <span class="money">96</span> to cover this new monthly top-up</h2>
+                <div class="select">
+                    <select name="" id="">
+                        <option value="">1st of month</option>
+                        <option value="">2nd of month</option>
+                        <option value="">3rd of month</option>
+                        <option value="">4th of month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="col-md-4">
+                <div class="buttons-group">
+                    <button class="btn btn-full">Confirm monthly top-up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://flickity.metafizzy.co/flickity.pkgd.js"></script>
+<script src="../assets/toolkit/scripts/toolkit.js"></script>

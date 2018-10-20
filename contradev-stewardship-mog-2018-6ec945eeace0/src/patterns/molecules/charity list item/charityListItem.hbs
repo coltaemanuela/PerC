@@ -1,0 +1,14 @@
+---
+name: Charity list item
+notes: Used anywhere you want to show a teaser of a charity (favourites / search)
+labels:
+  - approved
+  - react
+previewClass: drizzle-u-rhythm bg-red
+hidden: false
+---
+{{#embed "patterns.atoms.reactWrapper" root_id="reactCharity" appId="DemoCharity"}}
+  {{#content "content"}}
+    <CharityListItem {...favs[0]} />
+  {{/content}}
+{{/embed}}

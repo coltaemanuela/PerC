@@ -1,0 +1,81 @@
+.gift-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 80px;
+    color: white;
+    //background-color: rgba($black, .8);
+    background-color: rgba($red-lighter, .8);
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backdrop-filter: blur(3px);
+    transition: opacity .5s ease-out, visibility .5s ease-out;
+}
+
+.gift-overlay-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gift-overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1140px;
+    max-height: 70vh;
+    border-radius: $radius;
+    overflow: auto;
+    margin: 0 25px;
+    padding: 40px;
+    background-color: white;
+    color: $secondary;
+    transform: scale(.75) rotate(2deg) translateZ(1px);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(0.4, 0, 0.2, 1), opacity .5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .gift-overlay-visible & {
+        transform: scale(1) rotate(0deg) translateZ(1px);
+        opacity: 1;
+    }
+
+    p {
+        width: 100%;
+    }
+}
+
+.pay-method-overlay h2 {
+    margin-bottom: 20px;
+}
+
+.gift-overlay-choice {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+
+    @include media-breakpoint-up('md') {
+        flex-direction: row;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0 0 $gutter 0;
+
+        @include media-breakpoint-up('md') {
+            margin: 0 $gutter 0 0;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
