@@ -6,8 +6,10 @@ const calculatePledge = require('./actions/calculatePledge')
 const app = express();
 const port = 3000;
 
-app.get('/', calculatePledge);
+app.get('/pledge', calculatePledge);
 
 app.get('/give/:amount', postToFeed);
+
+app.use(express.static('public'))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

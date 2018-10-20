@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
       account_id: config.accountId
     }
   }).then(response => {
-    const oneWeekAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
+    const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
     console.log(oneWeekAgo);
     const cleanList = response.data.transactions
       .filter(t => {
