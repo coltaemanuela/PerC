@@ -1,6 +1,10 @@
 # PerC
+
 ## Description
-@coltaemanuela could add a description for stewardship to read
+PerC is a project meant to encourage 10% donations of weekly expenditures completed via Monzo account. 
+At the end of each week, the suggested donation amount is calculated according to the monitored expenditures. A user will be notified when the donation is ready to be confirmed and can either modify the amount to round it or just confirm it. Thus, the donation is processed from the user's Monzo account and when done, it is available in the transactions history.
+
+PerC is a prototype and is mainly dedicated to Stewardship UK. (https://www.stewardship.org.uk)
 
 ## Monzo access keys
 before running this, you will need to create a `config.json` file at the project root.
